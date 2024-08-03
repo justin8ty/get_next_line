@@ -6,7 +6,7 @@
 /*   By: jin-tan <jin-tan@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:41:17 by jin-tan           #+#    #+#             */
-/*   Updated: 2024/08/04 07:09:16 by jin-tan          ###   ########.fr       */
+/*   Updated: 2024/08/04 07:09:53 by jin-tan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char	*read_to_stash(int fd, char *stash)
 		buff[read_bytes] = '\0';
 		stash = ft_strjoin(stash, buff);
 	}
+	free(buff);
+	return (stash);
 }
 
 // Extracts line from stash to line
@@ -70,7 +72,7 @@ char	*read_to_line(char *stash)
 		str[i] = stash[i];
 		i++;
 	}
-	str[i] == '\0';
+	str[i] = '\0';
 	return (str);
 }
 
@@ -108,12 +110,10 @@ char	*update_stash(char *stash)
 		return (NULL);
 	i++;
 	while (stash[i])
-	{
 		str[j++] = stash[i++];
-		str[j] = '\0';
-		free(stash);
-		return (str);
-	}
+	str[j] = '\0';
+	free(stash);
+	return (str);
 }
 
 char	*get_next_line(int fd)
