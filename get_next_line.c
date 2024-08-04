@@ -6,7 +6,7 @@
 /*   By: jin-tan <jin-tan@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:41:17 by jin-tan           #+#    #+#             */
-/*   Updated: 2024/08/04 07:09:53 by jin-tan          ###   ########.fr       */
+/*   Updated: 2024/08/04 21:52:04 by jin-tan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	*read_to_stash(int fd, char *stash)
 		if (read_bytes == -1)
 		{
 			free(buff);
+			free(stash);
 			return (NULL);
 		}
 		buff[read_bytes] = '\0';
@@ -49,19 +50,22 @@ char	*read_to_stash(int fd, char *stash)
 // Extracts line from stash to line
 // i + 2 accounts for potential newline and null terminator
 
+// i is reinitialized because
+
 char	*read_to_line(char *stash)
 {
 	int		i;
 	char	*str;
 
 	i = 0;
-	if (!stash)
+	if (!stash[i])
 		return (NULL);
 	while (stash[i] && stash[i] != '\n')
 		i++;
 	str = malloc((i + 2) * sizeof(char));
 	if (!str)
 		return (NULL);
+	i = 0;
 	while (stash[i] && stash[i] != '\n')
 	{
 		str[i] = stash[i];
@@ -105,7 +109,7 @@ char	*update_stash(char *stash)
 		free(stash);
 		return (NULL);
 	}
-	str = malloc(ft_strlen(stash) - i + 1 * sizeof(char));
+	str = malloc((ft_strlen(stash) - i + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	i++;
@@ -122,7 +126,7 @@ char	*get_next_line(int fd)
 	static char	*stash;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (0);
 	stash = read_to_stash(fd, stash);
 	if (!stash)
 		return (NULL);
