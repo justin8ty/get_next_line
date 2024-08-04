@@ -59,8 +59,10 @@ When `counter()` is called repeatedly, `count` is only initialized once at begin
 ## Docs
 
 - https://yannick.eu/gnl/
-- https://medium.com/@ayogun/master-file-i-o-operations-with-42s-get-next-line-project-5fb001d1fff5
 - https://harm-smits.github.io/42docs/projects/get_next_line
+- https://medium.com/@omimouni33/pipex-the-42-project-understanding-pipelines-in-c-71984b3f2103
+- https://harm-smits.github.io/42docs/projects/get_next_line
+- https://youtu.be/mt2fdjjvno
 
 ## Testers
 
