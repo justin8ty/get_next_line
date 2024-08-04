@@ -61,3 +61,26 @@ When `counter()` is called repeatedly, `count` is only initialized once at begin
 - https://yannick.eu/gnl/
 - https://medium.com/@ayogun/master-file-i-o-operations-with-42s-get-next-line-project-5fb001d1fff5
 - https://harm-smits.github.io/42docs/projects/get_next_line
+
+## Testers
+
+- https://github.com/xicodomingues/francinette
+- https://github.com/Tripouille/gnlTester
+- https://github.com/kodpe/gnl-station-tester
+
+`francinette` or `paco`:
+
+```
+bash -c "$(curl -fsSL https://raw.github.com/xicodomingues/francinette/master/bin/install.sh)"
+
+libft % paco calloc
+```
+
+`gnlTester`:
+
+Clone as child.
+
+```
+sudo apt install valgrind
+make m, b, a, calloc
+```
