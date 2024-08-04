@@ -6,13 +6,13 @@
 /*   By: jin-tan <jin-tan@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 20:41:17 by jin-tan           #+#    #+#             */
-/*   Updated: 2024/08/04 07:07:45 by jin-tan          ###   ########.fr       */
+/*   Updated: 2024/08/04 21:02:16 by jin-tan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char *s)
 {
 	size_t	i;
 
@@ -26,7 +26,7 @@ size_t	ft_strlen(const char *s)
 
 // ft_strchr parameters: a string and character to search for.
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
 	int		i;
 	char	cc;
